@@ -1,0 +1,122 @@
+<style type="text/css">
+
+  /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+  .full {
+    background: url('img/CAPA-SEM-PALAVRAS.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+</style>
+<!DOCTYPE html>
+
+<html lang="pt-br" ng-app="nutricionistaApp" >
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>CFN - Jogo da Legislação</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+  <link rel="stylesheet" href="css/cover.css">
+  <link rel="stylesheet" href="css/sweetalert.css" >
+  <link rel="stylesheet" href="css/estilo.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/components/html5shiv.min.js"></script>
+      <script src="js/components/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body  class="full" ng-controller="cadastroCtrl" >
+
+      <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+
+          <div class="cover-container">
+
+            <div class="masthead clearfix">
+              <div class="inner">
+                <h3 class="masthead-brand"><img src="img/logo-com-legenda-tam-14.png"></h3>
+                <nav>
+                  <ul class="nav masthead-nav">
+                    <li class="active"><a href="index.html">Início</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <div class="inner cover">
+              <div class="well well-lg" style="opacity: 0.94;">
+                <p  style="color:black" class="lead">Para participar, preencha o cadastro abaixo e responda as cinco perguntas a seguir. Caso consiga acertar três, você ganhará um kit exclusivo do CFN.</p>
+                <p class="lead">
+                  <form class="form-horizontal">
+                    <div class="form-group form-group-lg">
+                      <div class="col-sm-12">
+                        <input class="form-control" ng-model="input.nome" type="text" placeholder="Seu Nome Completo">
+                      </div>
+                    </div>
+                    <div class="form-group form-group-lg">
+                      <div class="col-sm-12">
+                        <input class="form-control" ng-model="input.email" type="text" placeholder="E-mail">
+                      </div>
+                    </div>
+                    <div class="form-group form-group-lg">
+                      <div class="col-sm-12">
+                        <input  class="form-control" ng-model="input.cpf" type="text" placeholder="CPF">
+                      </div>
+                    </div>
+                    <div class="form-group form-group-lg">
+                     <div class="col-sm-12">
+                        <select class="form-control" ng-model="input.estado">
+                          <option value="">Selecione Seu Estado</option>
+                          <option ng-repeat=" estado in estados " value="{{estado.Nome}}">{{estado.Nome}}</option>
+
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                      <label class="col-sm-2 control-label">Ocupação</label>
+                      <div class="col-sm-10">
+                        <label class="radio-inline"><input ng-model="input.ocupacao" type="radio" value="Nutricionista">Nutricionista</label>
+                        <label class="radio-inline"><input ng-model="input.ocupacao" type="radio" value="Estudante">Estudante de Nutrição</label>
+                        <label class="radio-inline"><input ng-model="input.ocupacao" type="radio" value="Outros">Outros</label>
+                      </div>
+                    </div>
+                    <div ng-show="input.ocupacao == 'Nutricionista'" class="form-group form-group-lg">
+                      <div class="col-sm-12">
+                        <input  class="form-control" ng-model="input.registro" type="registro" placeholder="CRN/Inscrição">
+                      </div>
+                    </div>
+                  </form>
+                  
+                  <a href="#" ng-click="saveCadastro()" ><button type="button" class="btn btn-magick btn-lg btn3d"><span class="glyphicon glyphicon-gift"></span> Iniciar Jogo</button></a>
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/components/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/components/jquery.maskedinput-1.1.4.pack.js"></script>
+    <script src="js/components/bootstrap.min.js"></script>
+    <script src="js/components/angular.min.js"></script>
+    <script src="js/components/sweetalert.min.js"></script>
+    <script src="js/estados.js"></script>
+    <script src="js/cadastro.js"></script>
+    </html>
