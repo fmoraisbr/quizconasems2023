@@ -1,19 +1,26 @@
 <style type="text/css">
-
   /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
   .full {
-  background: url('img/CAPA-SEM-PALAVRAS.png') no-repeat center center fixed;
+    background: url('img/fundo5.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
   }
 
+  .alerta-centralizado {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 20px;
+  }
 </style>
 <!DOCTYPE html>
 
-<html lang="pt-br" ng-app="nutricionistaApp" >
+<html lang="pt-br" ng-app="nutricionistaApp">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,74 +29,83 @@
   <title>CFN - Jogo da Legislação</title>
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/cover.css">
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/sweetalert.css">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!--[if lt IE 9]>
       <script src="js/components/html5shiv.min.js"></script>
       <script src="js/components/respond.min.js"></script>
       <![endif]-->
-    </head>
-    <body  class="full" ng-controller="jogoCtrl">
-      <a style="position: absolute;right: 0;top: 0;" href="#" ><button type="button" class="btn btn-magick btn-lg btn3d"><span class="glyphicon glyphicon-dashboard"></span> {{countTimeOut}}</button></a>
+</head>
 
-      <div class="site-wrapper">
+<body class="full" ng-controller="jogoCtrl">
 
-        <div class="site-wrapper-inner">
+  <!-- <a style="position: absolute;right: 0;top: 0;" href="#">
+    <div class="alert alert-success" role="alert">
+      <strong>{{countTimeOut}}</strong>
+    </div>
+    <button type="button" class="btn btn-magick btn-lg btn3d">
+      {{countTimeOut}}
+    </button>
+  </a> -->
 
-          <div class="cover-container">
+  <div class="site-wrapper">
 
-            <div class="masthead clearfix">
-              <div class="inner">
-                <h3 class="masthead-brand"><img src="img/logo-com-legenda-tam-14.png"></h3>
-                <nav>
-                  <ul class="nav masthead-nav">
-                    <li class="active"><a href="index.html">Início</a></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
+    <div class="site-wrapper-inner">
 
-          </div>
-
-          <div>
-            <form class="form-horizontal">
-
-              <div class="modal-dialog" style="width: 920px;margin: auto;">
-      <div class="modal-content" style="margin-top: 96px;">
-         <div class="modal-header">
-            <h3><span class="label label-warning" id="qid">{{currentView}}</span><span class="enunciado">{{perguntaTela.enunciado}}</span></h3>
-        </div>
-        <div class="modal-body">
-            
-              <div ng-click="selecionaItem(item, $index, perguntaTela)"  ng-repeat = "item in perguntaTela.itens" class="quiz" data-toggle="buttons">
-               <label class="element-animation1 btn btn-lg btn-primary btn-block" style="margin-bottom: 2px;"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer">{{item}}</label>
-           </div>
-       </div>
-              <button ng-if="!enableButton && currentView < 5" type="button" class="btn btn-danger btn-lg btn3d"><span class="glyphicon glyphicon-remove"></span> Selecione a Resposta</button>
-              <button ng-if="enableButton && currentView < 5" ng-click="processaResposta()" type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span> Próximo Desafio!</button>
-              <button ng-if="currentView == 5" ng-click="processaResposta()" type="button" class="btn btn-magick btn-lg btn3d"><span class="glyphicon glyphicon-gift"></span> Concluir!</button>
-
-            </form>
-          </div>
-          
-        </div>
-
+      <div class="alert alert-success alerta-centralizado" role="alert">
+        <i class="fa fa-clock-o" aria-hidden="true"></i> Tempo restante: <strong>{{countTimeOut}}</strong>
       </div>
 
-    </body>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/components/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="js/components/bootstrap.min.js"></script>
-    
-    <script src="js/components/angular.min.js"></script>
-    <script src="js/components/sweetalert.min.js"></script>
-    <script src="js/perguntas.js"></script>
-    <script src="js/jogo.js"></script>
-    </html>
+      <div>
+        <form class="form-horizontal">
+
+          <div class="modal-dialog" style="width: 920px;margin: auto;">
+            <div class="modal-content" style="margin-top: 96px;">
+              <div class="modal-header">
+                <h3><span class="label label-warning" id="qid">{{currentView}}</span><span
+                    class="enunciado">{{perguntaTela.enunciado}}</span></h3>
+              </div>
+              <div class="modal-body">
+
+                <div ng-click="selecionaItem(item, $index, perguntaTela)" ng-repeat="item in perguntaTela.itens"
+                  class="quiz" data-toggle="buttons">
+                  <label class="element-animation1 btn btn-lg btn-primary btn-block" style="margin-bottom: 2px;"><span
+                      class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio"
+                      name="q_answer">{{item}}</label>
+                </div>
+              </div>
+              <button ng-if="!enableButton && currentView < 5" type="button" class="btn btn-danger btn-lg btn3d"><span
+                  class="glyphicon glyphicon-remove"></span> Selecione a Resposta</button>
+              <button ng-if="enableButton && currentView < 5" ng-click="processaResposta()" type="button"
+                class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span> Próximo
+                Desafio!</button>
+              <button ng-if="currentView == 5" ng-click="processaResposta()" type="button"
+                class="btn btn-magick btn-lg btn3d"><span class="glyphicon glyphicon-gift"></span> Concluir!</button>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/components/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/components/bootstrap.min.js"></script>
+
+<script src="js/components/angular.min.js"></script>
+<script src="js/components/sweetalert.min.js"></script>
+<script src="js/perguntas.js"></script>
+<script src="js/jogo.js"></script>
+
+</html>

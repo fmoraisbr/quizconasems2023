@@ -1,0 +1,66 @@
+<style type="text/css">
+  table, th, td {
+    border: 1px solid black;
+  }
+  table{
+    width: 100%
+  }
+</style>
+<!DOCTYPE html>
+
+<html lang="pt-br" ng-app="nutricionistaApp" >
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>CFN - Jogo da Legislação</title>
+</head>
+<body  class="" ng-controller="consolidadoCtrl" >
+<h1 style="text-align:center">Banco de Dados - Jogo da Legislação</h1>
+<h2 style="text-align:center">Pressione Ctrl + P , Salve como PDF com layout "paisagem".  </h2>
+
+<h3 >Jogadores Cadastrados</h3>
+<table>
+  <thead>
+    <th style="">Nome Completo</th>
+    <th style="">E-mail</th>
+    <th style="">CPF</th>
+    <th style="">Estado</th>
+    <th style="">Ocupação</th>
+    <th style="">Acertos</th>
+    <th style="">Data Hora</th>    
+  </thead>
+    <tbody>
+      <tr ng-repeat="input in inputList">
+        <td>{{input.nome}}</td>
+        <td>{{input.email}}</td>
+        <td>{{input.cpf}}</td>
+        <td>{{input.estado == 'Selecione' ? "" : input.estado}}</td>
+        <td>{{input.ocupacao}} {{input.registro}}</td>
+        <td>{{input.respostasCorretas}}</td>
+        <td>{{input.dataHora}}</td>
+      </tr>      
+    </tbody>
+</table>
+
+<h3 >Acertos e Erros por Questão</h3>
+<table>
+  <thead>
+    <th style="">Questão</th>
+    <th style="">Acertos</th>
+    <th style="">Erros</th>
+  </thead>
+    <tbody>
+      <tr ng-repeat="resposta in consolidadoPorResposta">
+        <td>{{resposta.questao}}</td>
+        <td>{{resposta.acertos}}</td>
+        <td>{{resposta.erros}}</td>
+      </tr>      
+    </tbody>
+</table>
+
+</body>
+<script src="js/components/angular.min.js"></script>
+<script src="js/consolidado.js"></script>
+</html>

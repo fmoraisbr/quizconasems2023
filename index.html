@@ -1,84 +1,133 @@
 <style type="text/css">
+  /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
-/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
-
-.full {
-    background: url('img/CAPA-SEM-PALAVRAS.png') no-repeat center center fixed;
+  .full {
+    background: url('img/fundo4.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
+  }
 </style>
 <!DOCTYPE html>
 
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>CFN - Jogo da Legislação</title>
+
+  <title>QUIZ CONASEMS 2023 | Conselho Federal de Nutricionistas</title>
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/cover.css">
   <link rel="stylesheet" href="css/estilo.css">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="js/components/html5shiv.min.js"></script>
-      <script src="js/components/respond.min.js"></script>
-      <![endif]-->
-    </head>
-    <body  class="full" >
+  <link rel="stylesheet" href="css/kc.fab.css" />
 
-      <div class="site-wrapper">
+  <!-- FAVICON -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 
-        <div class="site-wrapper-inner">
+  <!-- META SEO -->
+  <meta name="title" content="QUIZ CONASEMS 2023 | Conselho Federal de Nutricionistas">
+  <meta name="description"
+    content="O QUIZ CONASEMS 2023 é um evento interativo e educacional organizado em colaboração entre o CONASEMS (Conselho Nacional de Secretarias Municipais de Saúde) e o Conselho Federal de Nutricionistas. Este quiz tem como objetivo principal promover a conscientização e o conhecimento sobre a importância da nutrição e dos serviços de saúde pública no Brasil.">
+  <meta name="keywords"
+    content="QUIZ CONASEMS 2023, Conselho Nacional de Secretarias Municipais de Saúde, Conselho Federal de Nutricionistas, Saúde públicaNutrição, Educação em saúde, Desafios interativos, Conscientização, Políticas de saúde, Nutrição clínica, Promoção da saúde, Workshops, Palestras, Especialistas em nutrição, Networking profissional, Inovações em saúdeProgramas de alimentação, Certificados de participação, Prêmios, Colaboração entre profissionais de saúde">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="Portuguese">
+  <meta name="author" content="Conselho Federal de Nutricionistas">
 
-          <div class="cover-container">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <div class="masthead clearfix">
-              <div class="inner">
-                <h3 class="masthead-brand"><img src="img/logo-com-legenda-tam-14.png"></h3>
-                <nav>
-                  <ul class="nav masthead-nav">
-                    <li class="active"><a href="#">Início</a></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
+</head>
 
-            <div class="inner cover">
-              <div class="well well-lg" style="opacity: 0.94;">
-                <h1 style="color:black" class="cover-heading">VOCÊ CONHECE A LEGISLAÇÃO DO NUTRICIONISTA?</h1>
-                <p  style="color:black" class="lead">Que tal testar os seus conhecimentos?</p>
-                <p class="lead">
-                  
-                  <a href="cadastro.html" ><button type="button" class="btn btn-magick btn-lg btn3d"><span class="glyphicon glyphicon-gift"></span> Eu quero começar!</button></a>
-                </p>
-              </div>
-            </div>
+<body class="full">
 
-            <div class="mastfoot">
-              <div class="inner">
-                <p>Desenvolvido com tecnologias livres pelo <a href="consolidado.html">CFN</a></a>.</p>
-              </div>
-            </div>
+  <div class="site-wrapper">
 
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+
+        <div class="kc_fab_wrapper"></div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- <script src="js/components/jquery.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/kc.fab.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            var links = [
+              {
+                "bgcolor": "hsl(345deg 100% 47%)",
+                "icon": "+"
+              },
+              {
+                "url": "resultado.html",
+                "bgcolor": "#2961a1",
+                "color": "#fffff",
+                "icon": "<i class='fa fa-bar-chart' aria-hidden='true'></i>",
+                "target": "_blank"
+              },
+              {
+                "url": "cadastro.html",
+                "bgcolor": "#2961a1",
+                "color": "white",
+                "icon": "<i class='fa fa-plus-square-o' aria-hidden='true'></i>",
+                "target": "_blank"
+              },
+              {
+                "url": "jogo.html",
+                "bgcolor": "#2961a1",
+                "color": "white",
+                "icon": "<i class='fa fa-play-circle' aria-hidden='true'></i>",
+                "target": "_blank"
+              }
+            ]
+            $('.kc_fab_wrapper').kc_fab(links);
+          })
+        </script>
+
+        <div class="inner cover">
+          <div class="well well-lg">
+            <h1 style="color:black" class="cover-heading">VOCÊ CONHECE A LEGISLAÇÃO DO NUTRICIONISTA?</h1>
+            <p style="color:black" class="lead">Que tal testar os seus conhecimentos?</p>
+            <p class="lead">
+
+              <button class="pushable"><a href="cadastro.html" style="text-decoration: none!important;">
+                  <span class="front" style="font-size: x-large;">
+                    QUERO COMEÇAR AGORA
+                  </span></a>
+              </button>
+            </p>
           </div>
-
         </div>
+
+        <!-- <div class="mastfoot">
+          <div class="inner">
+            <p>Desenvolvido com tecnologias livres pelo <a href="consolidado.html">CFN</a></a>.</p>
+          </div>
+        </div> -->
 
       </div>
 
-    </body>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/components/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="js/components/bootstrap.min.js"></script>
-    </html>
+    </div>
+
+  </div>
+
+</body>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/components/bootstrap.min.js"></script>
+
+</html>
