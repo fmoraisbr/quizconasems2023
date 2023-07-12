@@ -1,72 +1,30 @@
 var perguntas = [
   [
-    "Qual é a capital da França?",
-    "Paris",
-    "Londres",
-    "Berlim",
+    "Quais são os atributos essenciais da Atenção Primária à Saúde?",
+    "Atenção ao primeiro contato, Longitudinalidade, Integralidade e Coordenação do cuidado",
+    "Descentralização, Universalidade, Integralidade e Cuidado centrado na pessoa",
+    "Coordenação do cuidado, Longitudinalidade, Regionalização, Gestão do cuidado em rede",
     "A"
   ],
   [
-    "Qual é a moeda do Japão?",
-    "Dólar",
-    "Yen",
-    "Euro",
-    "B"
-  ],
-  [
-    "Qual é o maior oceano?",
-    "Atlântico",
-    "Pacífico",
-    "Índico",
-    "B"
-  ],
-  [
-    "Qual é o maior planeta do sistema solar?",
-    "Marte",
-    "Júpiter",
-    "Saturno",
-    "B"
-  ],
-  [
-    "Qual é o rio mais longo do mundo?",
-    "Amazonas",
-    "Nilo",
-    "Mississippi",
-    "A"
-  ],
-  [
-    "Qual é a montanha mais alta do mundo?",
-    "K2",
-    "Everest",
-    "Kilimanjaro",
-    "B"
-  ],
-  [
-    "Qual é o animal mais rápido do mundo?",
-    "Leopardo",
-    "Cheetah",
-    "Falcão-peregrino",
-    "B"
-  ],
-  [
-    "Qual é o maior país do mundo?",
-    "China",
-    "Canadá",
-    "Rússia",
+    "Marque a alternativa que não faz parte da estrutura e organização da UBS para a Atenção Nutricional ",
+    "Estadiômetro/Antropômetro vertical adulto e infantil",
+    "Fita antropométrica",
+    "Pirâmide dos alimentos",
     "C"
   ],
   [
-    "Qual é a maior ilha do mundo?",
-    "Groenlândia",
-    "Nova Guiné",
-    "Bornéu",
+    "Dentre os nove Princípios para a elaboração de ações de Educação Alimentar e Nutricional, marque a alternativa que contem pelo menos 3",
+    "Valorização da cultura alimentar local, Promoção de autocuidado e Sustentabilidade social, ambiental e econômica",
+    "Diversidade de cenários de prática, Sistema alimentar e sua integralidade e Avaliação de riscos de doenças crônicas",
+    "Promoção do autocuidado, Valorização da cultura alimentar e mapeamento de erros nos hábitos alimentares",
     "A"
   ],
   [
-    "Qual é a cidade mais populosa do mundo?",
-    "Nova York",
-    "Tóquio",
-    "Xangai",
-    "B"
+    "Marque a alternativa incorreta dentre as vantagens de se ter um nutricionista na equipe multidisciplinar",
+    "Redução da necessidade de atenção especializada",
+    "Melhora na eficiência das ações de prevenção ás DCNT",
+    "Redução da promoção da alimentação adequada e saudável",
+    "C"
   ]
 ];
