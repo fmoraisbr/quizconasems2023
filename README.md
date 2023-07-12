@@ -1,8 +1,6 @@
 # Sistema de Quiz CONASEMS 2023
 
-<br/><p align="center">
-  <img align="" width="" height="" src="print.png">
-</p>
+<img align="" width="" height="" src="print.png"><br/>
 
 O Sistema de Quiz CONASEMS 2023 é uma aplicação interativa e educacional desenvolvida para o evento colaborativo entre o CONASEMS (Conselho Nacional de Secretarias Municipais de Saúde) e o Conselho Federal de Nutricionistas. O objetivo principal deste quiz é promover a conscientização e o conhecimento sobre a importância da nutrição e dos serviços de saúde pública no Brasil.
 
