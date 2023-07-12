@@ -1,16 +1,4 @@
-<style type="text/css">
-  /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
-
-  .full {
-    background: url('img/fundo4.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-  }
-</style>
 <!DOCTYPE html>
-
 <html lang="pt-br">
 
 <head>
@@ -49,6 +37,15 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <style type="text/css">
+    .full {
+      background: url('img/fundo6.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/custom.scss">
+
 </head>
 
 <body class="full">
@@ -73,24 +70,38 @@
                 "icon": "+"
               },
               {
-                "url": "resultado.html",
-                "bgcolor": "#2961a1",
+                "url": "estatisticas.html",
+                "bgcolor": "#8e44ad",
                 "color": "#fffff",
                 "icon": "<i class='fa fa-bar-chart' aria-hidden='true'></i>",
                 "target": "_blank"
               },
               {
-                "url": "cadastro.html",
-                "bgcolor": "#2961a1",
+                "url": "resultadocadastro.html",
+                "bgcolor": "#8e44ad",
+                "color": "#fffff",
+                "icon": "<i class='fa fa-area-chart' aria-hidden='true'></i>",
+                "target": "_blank"
+              },
+              {
+                "url": "perguntas.html",
+                "bgcolor": "#e67e22",
                 "color": "white",
-                "icon": "<i class='fa fa-plus-square-o' aria-hidden='true'></i>",
+                "icon": "<i class='fa fa-question-circle' aria-hidden='true'></i>",
+                "target": "_blank"
+              },
+              {
+                "url": "cadastro.html",
+                "bgcolor": "#2980b9",
+                "color": "white",
+                "icon": "<i class='fa fa-user-plus' aria-hidden='true'></i>",
                 "target": "_blank"
               },
               {
                 "url": "jogo.html",
-                "bgcolor": "#2961a1",
+                "bgcolor": "#27ae60",
                 "color": "white",
-                "icon": "<i class='fa fa-play-circle' aria-hidden='true'></i>",
+                "icon": "<i class='fa fa-gamepad' aria-hidden='true'></i>",
                 "target": "_blank"
               }
             ]
@@ -100,13 +111,17 @@
 
         <div class="inner cover">
           <div class="well well-lg">
-            <h1 style="color:black" class="cover-heading">VOCÊ CONHECE A LEGISLAÇÃO DO NUTRICIONISTA?</h1>
-            <p style="color:black" class="lead">Que tal testar os seus conhecimentos?</p>
+            <img src="img/quiz1.png" alt="" style="max-width: 50%; text-align: center; margin-bottom: 10px;">
+            <h1 style="font-size: 70px;" class="cover-heading">QUIZ CONASEMS</h1>
+            <p style="color: #4b5c6f; margin-bottom: 30px;" class="lead">Que tal testar os seus conhecimentos sobre a
+              Matriz para Organização
+              dos
+              Cuidados em Alimentação e Nutrição na Atenção Primária à Saúde?</p>
             <p class="lead">
 
               <button class="pushable"><a href="cadastro.html" style="text-decoration: none!important;">
-                  <span class="front" style="font-size: x-large;">
-                    QUERO COMEÇAR AGORA
+                  <span class="front" style="font-size: 30px;">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i> <strong>COMEÇAR AGORA</strong>
                   </span></a>
               </button>
             </p>

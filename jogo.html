@@ -1,111 +1,223 @@
-<style type="text/css">
-  /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
-
-  .full {
-    background: url('img/fundo5.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-  }
-
-  .alerta-centralizado {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-size: 20px;
-  }
-</style>
 <!DOCTYPE html>
-
-<html lang="pt-br" ng-app="nutricionistaApp">
+<html lang="pt-br">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>CFN - Jogo da Legislação</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/cover.css">
-  <link rel="stylesheet" href="css/estilo.css">
-  <link rel="stylesheet" href="css/sweetalert.css">
+    <title>QUIZ CONASEMS 2023 | Conselho Federal de Nutricionistas</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="js/components/html5shiv.min.js"></script>
-      <script src="js/components/respond.min.js"></script>
-      <![endif]-->
+    <!-- META SEO -->
+    <meta name="title" content="QUIZ CONASEMS 2023 | Conselho Federal de Nutricionistas">
+    <meta name="description"
+        content="O QUIZ CONASEMS 2023 é um evento interativo e educacional organizado em colaboração entre o CONASEMS (Conselho Nacional de Secretarias Municipais de Saúde) e o Conselho Federal de Nutricionistas. Este quiz tem como objetivo principal promover a conscientização e o conhecimento sobre a importância da nutrição e dos serviços de saúde pública no Brasil.">
+    <meta name="keywords"
+        content="QUIZ CONASEMS 2023, Conselho Nacional de Secretarias Municipais de Saúde, Conselho Federal de Nutricionistas, Saúde públicaNutrição, Educação em saúde, Desafios interativos, Conscientização, Políticas de saúde, Nutrição clínica, Promoção da saúde, Workshops, Palestras, Especialistas em nutrição, Networking profissional, Inovações em saúdeProgramas de alimentação, Certificados de participação, Prêmios, Colaboração entre profissionais de saúde">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="Portuguese">
+    <meta name="author" content="Conselho Federal de Nutricionistas">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+        }
+
+        .full {
+            background: url('img/fundo6.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .center-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="data.js"></script> <!-- Include the data.js file -->
+
+    <style>
+        .center-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .progress {
+            height: 20px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            transition: width 1s;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        h2 {
+            margin: 10% 0 5% 0;
+            font-weight: bold;
+        }
+
+        button.btn.btn-light.mb-3.w-100 {
+            font-size: 20px;
+            padding: 3%;
+            border: solid;
+        }
+    </style>
 </head>
 
-<body class="full" ng-controller="jogoCtrl">
+<body class="full">
+    <div class="container center-screen">
+        <div class="w-100 p-3">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h1 class="text-center mb-4">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <span id="timer"></span>
+                    </h1>
 
-  <!-- <a style="position: absolute;right: 0;top: 0;" href="#">
-    <div class="alert alert-success" role="alert">
-      <strong>{{countTimeOut}}</strong>
-    </div>
-    <button type="button" class="btn btn-magick btn-lg btn3d">
-      {{countTimeOut}}
-    </button>
-  </a> -->
+                    <div class="progress">
+                        <div id="timerBar" class="progress-bar"></div>
+                    </div>
 
-  <div class="site-wrapper">
-
-    <div class="site-wrapper-inner">
-
-      <div class="alert alert-success alerta-centralizado" role="alert">
-        <i class="fa fa-clock-o" aria-hidden="true"></i> Tempo restante: <strong>{{countTimeOut}}</strong>
-      </div>
-
-      <div>
-        <form class="form-horizontal">
-
-          <div class="modal-dialog" style="width: 920px;margin: auto;">
-            <div class="modal-content" style="margin-top: 96px;">
-              <div class="modal-header">
-                <h3><span class="label label-warning" id="qid">{{currentView}}</span><span
-                    class="enunciado">{{perguntaTela.enunciado}}</span></h3>
-              </div>
-              <div class="modal-body">
-
-                <div ng-click="selecionaItem(item, $index, perguntaTela)" ng-repeat="item in perguntaTela.itens"
-                  class="quiz" data-toggle="buttons">
-                  <label class="element-animation1 btn btn-lg btn-primary btn-block" style="margin-bottom: 2px;"><span
-                      class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio"
-                      name="q_answer">{{item}}</label>
+                    <div id="questionContainer"></div>
                 </div>
-              </div>
-              <button ng-if="!enableButton && currentView < 5" type="button" class="btn btn-danger btn-lg btn3d"><span
-                  class="glyphicon glyphicon-remove"></span> Selecione a Resposta</button>
-              <button ng-if="enableButton && currentView < 5" ng-click="processaResposta()" type="button"
-                class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span> Próximo
-                Desafio!</button>
-              <button ng-if="currentView == 5" ng-click="processaResposta()" type="button"
-                class="btn btn-magick btn-lg btn3d"><span class="glyphicon glyphicon-gift"></span> Concluir!</button>
-
-        </form>
-      </div>
-
+            </div>
+        </div>
     </div>
 
-  </div>
+    <script>
+        function updateTimer() {
+            let timerElement = document.getElementById('timer');
+            let timerBarElement = document.getElementById('timerBar');
+            let time = parseInt(timerElement.innerText, 10) || 120;
+            time--;
 
+            // Atualize a largura da barra de progresso com base no tempo restante
+            let progress = (time / 120) * 100;
+            timerBarElement.style.width = progress + '%';
+
+            timerElement.innerText = time;
+
+            // Atualize as classes CSS da barra de progresso com base no progresso
+            timerBarElement.classList.remove('green', 'blue', 'orange', 'red');
+            if (progress >= 90) {
+                timerBarElement.classList.add('green');
+            } else if (progress >= 70) {
+                timerBarElement.classList.add('blue');
+            } else if (progress >= 40) {
+                timerBarElement.classList.add('orange');
+            } else {
+                timerBarElement.classList.add('red');
+            }
+
+            if (time <= 0) {
+                endGame();
+            }
+        }
+
+        let questions;
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let timer;
+
+        // Use the perguntas variable directly
+        questions = _.sampleSize(perguntas, 5);
+        displayQuestion();
+        timer = setInterval(updateTimer, 1000);
+
+        function displayQuestion() {
+            let questionContainer = document.getElementById('questionContainer');
+            questionContainer.innerHTML = '';
+            let question = questions[currentQuestionIndex];
+            let questionElement = document.createElement('h2');
+            questionElement.innerHTML = question[0] + '<br/>'; // Adicione <br/> após o título da pergunta
+            questionContainer.appendChild(questionElement);
+            for (let i = 1; i <= 3; i++) {
+                let answerElement = document.createElement('button');
+                answerElement.innerText = question[i];
+                answerElement.classList.add('btn', 'btn-light', 'mb-3', 'w-100');
+                answerElement.addEventListener('click', function () {
+                    let correct = question[4] === String.fromCharCode(64 + i);
+                    if (correct) {
+                        correctAnswers++;
+                    }
+                    updateStats(question[0], correct);
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        displayQuestion();
+                    } else {
+                        endGame();
+                    }
+                });
+                questionContainer.appendChild(answerElement);
+            }
+        }
+
+        function updateStats(question, correct) {
+            let stats = JSON.parse(localStorage.getItem('stats')) || {};
+            if (!stats[question]) {
+                stats[question] = { correct: 0, incorrect: 0 };
+            }
+            if (correct) {
+                stats[question].correct++;
+            } else {
+                stats[question].incorrect++;
+            }
+            localStorage.setItem('stats', JSON.stringify(stats));
+        }
+
+        function endGame() {
+            clearInterval(timer);
+            Swal.fire({
+                title: correctAnswers > 3 ? 'Parabéns, você venceu!' : 'Não foi dessa vez!',
+                icon: correctAnswers > 3 ? 'success' : 'error',
+                timer: 10000,
+                timerProgressBar: true,
+                didClose: () => {
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+    </script>
 </body>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/components/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- Latest compiled and minified JavaScript -->
-<script src="js/components/bootstrap.min.js"></script>
-
-<script src="js/components/angular.min.js"></script>
-<script src="js/components/sweetalert.min.js"></script>
-<script src="js/perguntas.js"></script>
-<script src="js/jogo.js"></script>
 
 </html>

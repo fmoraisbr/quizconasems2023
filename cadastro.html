@@ -1,122 +1,195 @@
-<style type="text/css">
-  /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
-
-  .full {
-    background: url('img/fundo4.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-  }
-</style>
-<!DOCTYPE html>
-
-<html lang="pt-br" ng-app="nutricionistaApp">
+<!doctype html>
+<html lang="pt-br">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>CFN - Jogo da Legislação</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/cover.css">
-  <link rel="stylesheet" href="css/sweetalert.css">
-  <link rel="stylesheet" href="css/estilo.css">
+    <title>QUIZ CONASEMS 2023 | Conselho Federal de Nutricionistas</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="js/components/html5shiv.min.js"></script>
-      <script src="js/components/respond.min.js"></script>
-      <![endif]-->
+    <!-- META SEO -->
+    <meta name="title" content="QUIZ CONASEMS 2023 | Conselho Federal de Nutricionistas">
+    <meta name="description"
+        content="O QUIZ CONASEMS 2023 é um evento interativo e educacional organizado em colaboração entre o CONASEMS (Conselho Nacional de Secretarias Municipais de Saúde) e o Conselho Federal de Nutricionistas. Este quiz tem como objetivo principal promover a conscientização e o conhecimento sobre a importância da nutrição e dos serviços de saúde pública no Brasil.">
+    <meta name="keywords"
+        content="QUIZ CONASEMS 2023, Conselho Nacional de Secretarias Municipais de Saúde, Conselho Federal de Nutricionistas, Saúde públicaNutrição, Educação em saúde, Desafios interativos, Conscientização, Políticas de saúde, Nutrição clínica, Promoção da saúde, Workshops, Palestras, Especialistas em nutrição, Networking profissional, Inovações em saúdeProgramas de alimentação, Certificados de participação, Prêmios, Colaboração entre profissionais de saúde">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="Portuguese">
+    <meta name="author" content="Conselho Federal de Nutricionistas">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+        }
+
+        .full {
+            background: url('img/fundo6.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .center-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+
+    <script>
+        function formatPhone(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+            if (value.length > 2) {
+                value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+            }
+            if (value.length > 9) {
+                value = value.substring(0, 9) + '-' + value.substring(9);
+            }
+            if (value.length > 15) {
+                value = value.substring(0, 15); // Limita o comprimento a 15 caracteres
+            }
+            input.value = value;
+        }
+    </script>
 </head>
 
-<body class="full" ng-controller="cadastroCtrl">
-
-  <div class="site-wrapper">
-
-    <div class="site-wrapper-inner">
-
-      <div class="cover-container">
-
-        <div class="inner cover">
-          <div class="well well-lg" style="opacity: 0.94;">
-            <p style="color:black" class="lead">Para participar, preencha o cadastro abaixo e responda as cinco
-              perguntas a seguir. Caso consiga acertar três, você ganhará um kit exclusivo do CFN.</p>
-            <p class="lead">
-            <form class="form-horizontal">
-              <div class="form-group form-group-lg">
-                <div class="col-sm-12">
-                  <input class="form-control" ng-model="input.nome" type="text" placeholder="Seu Nome Completo">
+<body class="full">
+    <div class="center-screen">
+        <form id="registrationForm" class="w-50 p-3">
+            <div class="mb-3">
+                <!-- <p style="color: #4a5d6f; font-weight: bolder;" class="lead">
+                    Para participar, preencha o cadastro abaixo
+                    e
+                    responda as cinco
+                    perguntas a seguir. Caso consiga acertar três, você ganhará um kit exclusivo do CFN.
+                </p> -->
+                <h3 style="color: #4a5d6f; font-weight: bolder;">
+                    Para participar, preencha o cadastro abaixo
+                    e
+                    responda as cinco
+                    perguntas a seguir. Caso consiga acertar três, você ganhará um kit exclusivo do CFN.
+                </h3>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="state" class="form-label">Estado</label>
+                <select class="form-select" id="state" required>
+                    <option selected disabled value="">Selecione um estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="municipality" class="form-label">Município</label>
+                <input type="text" class="form-control" id="municipality" required>
+            </div>
+            <div class="mb-3">
+                <label for="institutionalPhone" class="form-label">Telefone Institucional</label>
+                <input type="tel" class="form-control" id="institutionalPhone" required oninput="formatPhone(this)">
+                <div class="form-text">Formato: (XX) XXXXX-XXXX</div>
+            </div>
+            <div class="mb-3">
+                <label for="institutionalEmail" class="form-label">E-mail Institucional</label>
+                <input type="email" class="form-control" id="institutionalEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="position" class="form-label">Cargo</label>
+                <input type="text" class="form-control" id="position" required>
+            </div>
+            <div class="mb-3">
+                <label for="numNutritionists" class="form-label">Nº de Nutricionistas na Saúde</label>
+                <input type="number" class="form-control" id="numNutritionists" required>
+            </div>
+            <div class="mb-3">
+                <label for="numNutritionistsAPS" class="form-label">Destes, quantos na APS?</label>
+                <input type="number" class="form-control" id="numNutritionistsAPS" required>
+            </div>
+            <!-- <button type="submit" class="btn btn-primary">Iniciar jogo</button> -->
+            <div class="mb-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required="required" id="terms"
+                        data-error="Before you wreck yourself" data-toggle="validator" required>
+                    <label class="form-check-label" for="exampleCheck1" style="font-style: italic; color: #198754;">
+                        Estou de acordo em fornecer meus dados para que o CFN entre em contato comigo, bem como ciente
+                        de que esses dados poderão ser utilizados para o envio de emails, de acordo com a Lei 13.709, de
+                        14 de agosto de 2018 (LGPD).
+                    </label>
                 </div>
-              </div>
-              <div class="form-group form-group-lg">
-                <div class="col-sm-12">
-                  <input class="form-control" ng-model="input.email" type="text" placeholder="E-mail">
-                </div>
-              </div>
-              <div class="form-group form-group-lg">
-                <div class="col-sm-12">
-                  <input class="form-control" ng-model="input.cpf" type="text" placeholder="CPF">
-                </div>
-              </div>
-              <div class="form-group form-group-lg">
-                <div class="col-sm-12">
-                  <select class="form-control" ng-model="input.estado">
-                    <option value="">Selecione Seu Estado</option>
-                    <option ng-repeat=" estado in estados " value="{{estado.Nome}}">{{estado.Nome}}</option>
+            </div>
 
-                  </select>
-                </div>
-              </div>
-              <div class="form-group form-group-sm">
-                <label class="col-sm-2 control-label">Ocupação</label>
-                <div class="col-sm-10">
-                  <label class="radio-inline"><input ng-model="input.ocupacao" type="radio"
-                      value="Nutricionista">Nutricionista</label>
-                  <label class="radio-inline"><input ng-model="input.ocupacao" type="radio" value="Estudante">Estudante
-                    de Nutrição</label>
-                  <label class="radio-inline"><input ng-model="input.ocupacao" type="radio"
-                      value="Outros">Outros</label>
-                </div>
-              </div>
-              <div ng-show="input.ocupacao == 'Nutricionista'" class="form-group form-group-lg">
-                <div class="col-sm-12">
-                  <input class="form-control" ng-model="input.registro" type="registro" placeholder="CRN/Inscrição">
-                </div>
-              </div>
-            </form>
-            <br />
-            <button class="pushable"><a href="jogo.html" style="text-decoration: none!important;">
-                <span class="front" style="font-size: x-large;">
-                  <i class="fa fa-play-circle" aria-hidden="true"></i> INICIAR JOGO
-                </span></a>
-            </button>
-            </p>
-          </div>
-        </div>
+            <div class="mb-3">
+                <p class="lead" style="text-align: center; margin-top: 40px;">
+                    <button type="submit" class="pushable">
+                        <a href="jogo.html" style="text-decoration: none!important;">
+                            <span class="front" style="font-size: 30px;">
+                                <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                <strong>
+                                    INICIAR JOGO
+                                </strong>
+                            </span>
+                        </a>
+                    </button>
+                </p>
+            </div>
 
-      </div>
 
+        </form>
     </div>
 
-  </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="js/cadastro.js"></script>
 
 </body>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/components/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- Latest compiled and minified JavaScript -->
-<script src="js/components/jquery.maskedinput-1.1.4.pack.js"></script>
-<script src="js/components/bootstrap.min.js"></script>
-<script src="js/components/angular.min.js"></script>
-<script src="js/components/sweetalert.min.js"></script>
-<script src="js/estados.js"></script>
-<script src="js/cadastro.js"></script>
 
 </html>
