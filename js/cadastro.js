@@ -29,5 +29,5 @@ document.getElementById('registrationForm').addEventListener('submit', function 
     let users = JSON.parse(localStorage.getItem('users')) || [];
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
-    window.location.href = "game.html";
+    window.location.href = "jogo.html";
 });

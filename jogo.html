@@ -208,8 +208,8 @@
         function endGame() {
             clearInterval(timer);
             Swal.fire({
-                title: correctAnswers > 3 ? 'Parabéns, você venceu!' : 'Não foi dessa vez!',
-                icon: correctAnswers > 3 ? 'success' : 'error',
+                title: correctAnswers >= 3 ? 'Parabéns, você venceu!' : 'Não foi dessa vez!',
+                icon: correctAnswers >= 3 ? 'success' : 'error',
                 timer: 10000,
                 timerProgressBar: true,
                 didClose: () => {
