@@ -102,6 +102,12 @@
             border: solid;
         }
     </style>
+
+    <!-- Retorno Sonoro -->
+    <audio id="audio-success">
+        <source src="sucesso3.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
 </head>
 
 <body class="full">
@@ -206,17 +212,25 @@
         }
 
         function endGame() {
+            // Reproduzindo o áudio
+            var audio = document.getElementById('audio-success');
+            audio.play();
+
             clearInterval(timer);
             Swal.fire({
                 title: correctAnswers >= 3 ? 'Parabéns, você venceu!' : 'Não foi dessa vez!',
                 icon: correctAnswers >= 3 ? 'success' : 'error',
                 timer: 10000,
                 timerProgressBar: true,
+                showConfirmButton: false,
                 didClose: () => {
                     window.location.href = 'index.html';
                 }
             });
         }
+
+        // Associando a função ao botão
+        document.getElementById('show-alert').addEventListener('click', showAlert);
     </script>
 </body>
 
